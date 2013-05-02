@@ -27,7 +27,17 @@ int main(int argc, char* argv[])
 
     RGB& fred = myRobot.getColour();
 
+    cout << "MyRobot the Robot says:" << endl;
     cout << "Red " << fred.getRed() << endl;
     cout << "Blue " << fred.getBlue() << endl;
     cout << "Green " << fred.getGreen() << endl;
+
+    Robot anotherRobot = std::move(myRobot); //my thinking is this will 
+                                             //fire the move constructor
+    
+    RGB& eric = anotherRobot.getColour();
+    cout << "AnotherRobot says:" << endl;
+    cout << "Red " << eric.getRed() << endl;
+    cout << "Blue " << eric.getBlue() << endl;
+    cout << "Green " << eric.getGreen() << endl;
 }

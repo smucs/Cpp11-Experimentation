@@ -5,6 +5,12 @@ Robot::Robot()
    
 }
 
+Robot::Robot(Robot&& old)
+{
+    //yoik, stole your resources ;-D
+    colour = make_shared<RGB>(old.getColour());
+}
+
 Robot::Robot(RGB& col)
 {
     colour = make_shared<RGB>(col);

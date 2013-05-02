@@ -14,6 +14,7 @@ private:
     shared_ptr<RGB> colour;
 public:
     Robot();
+    Robot(Robot&&);
     Robot(RGB&);
     ~Robot();
 
