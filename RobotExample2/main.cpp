@@ -64,5 +64,5 @@ int main(int argc, char* argv[])
         cout << "Green " << (*it)->getGreen() << endl;
     }
     
-
+    cout << "MyRobot is now broken, when we called move its resrouces were stolen" << endl; 
 }
