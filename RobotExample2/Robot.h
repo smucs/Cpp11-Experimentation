@@ -16,8 +16,9 @@ private:
 public:
     Robot();
     Robot(Robot&&);
-    Robot(Robot&);
-    Robot(RGB&);
+    Robot(Robot&); //this is probably wrong
+    Robot(const Robot&);
+    Robot(RGB&); 
     Robot(shared_ptr<RGB>);
     ~Robot();
 
@@ -27,12 +28,12 @@ public:
     //
 
     typedef typename std::vector<shared_ptr<RGB>>::iterator ColourItr;
-//    typedef typename std::vector<shared_ptr<RGB>>::const_iterator const_colourItr;
+    typedef typename std::vector<shared_ptr<RGB>>::const_iterator ConstColourItr;
     ColourItr begin() { return colours.begin(); }
     ColourItr end() { return colours.end(); }
 
-//    const_colourItr begin() { return const colours.begin(); }
-//    const_colourItr end() {return const colours.end(); }
+   ConstColourItr begin() const { return colours.begin(); } 
+   ConstColourItr end() const {return colours.end(); }
 
 };
 

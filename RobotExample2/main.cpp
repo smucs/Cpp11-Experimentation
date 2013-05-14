@@ -49,10 +49,20 @@ int main(int argc, char* argv[])
    
     cout << "AnotherRobot says:" << endl;
 
+    for(Robot::ColourItr it = anotherRobot.begin(); it !=anotherRobot.end(); ++it)
+    {
+        cout << "Red " << (*it)->getRed() << endl;
+        cout << "Blue " << (*it)->getBlue() << endl;
+        cout << "Green " << (*it)->getGreen() << endl;
+    }
+
+    cout << "MyRobot the Robot now says:" << endl;
     for(Robot::ColourItr it = myRobot.begin(); it !=myRobot.end(); ++it)
     {
         cout << "Red " << (*it)->getRed() << endl;
         cout << "Blue " << (*it)->getBlue() << endl;
         cout << "Green " << (*it)->getGreen() << endl;
     }
+    
+
 }

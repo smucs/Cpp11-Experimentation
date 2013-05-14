@@ -8,15 +8,20 @@ Robot::Robot()
 Robot::Robot(Robot&& temp)
 {
     //yoik, stole your resources ;-D
-    for(Robot::ColourItr it = temp.begin(); it != temp.end(); ++it)
-    { 
-    	addColour(*it);
-    }
+    colours=std::move(temp.colours);
 }
 
 Robot::Robot(Robot& old)
 {
     for(Robot::ColourItr it = old.begin(); it != old.end(); ++it)
+    {
+        addColour(*it);
+    }
+}
+
+Robot::Robot(const Robot& old)
+{
+    for(Robot::ConstColourItr it = old.begin(); it != old.end(); ++it)
     {
         addColour(*it);
     }
