@@ -1,5 +1,10 @@
 #include "Robot.h"
 
+#include <iostream>
+
+using std::cout;
+using std::endl;
+
 Robot::Robot()
 {
    
@@ -7,12 +12,14 @@ Robot::Robot()
 
 Robot::Robot(Robot&& temp)
 {
+    cout << "Move constructor called" << endl;
     //yoik, stole your resources ;-D
     colours=std::move(temp.colours);
 }
 
 Robot::Robot(Robot& old)
-{
+{   
+    cout << "Copy constructor called" << endl;
     for(Robot::ColourItr it = old.begin(); it != old.end(); ++it)
     {
         addColour(*it);
@@ -21,6 +28,7 @@ Robot::Robot(Robot& old)
 
 Robot::Robot(const Robot& old)
 {
+    cout << "Const copy constructor called" << endl;
     for(Robot::ConstColourItr it = old.begin(); it != old.end(); ++it)
     {
         addColour(*it);

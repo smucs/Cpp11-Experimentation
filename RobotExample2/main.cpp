@@ -41,6 +41,7 @@ int main(int argc, char* argv[])
         cout << "Green " << (*it)->getGreen() << endl;
     }
 
+//AnotherRobot tests the copy construcotr, he will break myRobot
     Robot anotherRobot = std::move(myRobot); //my thinking is this will 
                                              //fire the move constructor
     
@@ -64,5 +65,28 @@ int main(int argc, char* argv[])
         cout << "Green " << (*it)->getGreen() << endl;
     }
     
-    cout << "MyRobot is now broken, when we called move its resrouces were stolen" << endl; 
+    cout << "MyRobot is now broken, when we called move its resrouces were stolen" << endl << endl; 
+
+    Robot roboCopy = anotherRobot; //calls copy constructor
+
+    cout << "RoboCopy is a copy of Robot created with the copy constructor, anotherRobot modified after its creation. This roboCopy should therefore output the same list as the anotherRobot above" << endl;
+
+    RGB freddie{255,0,0};
+    anotherRobot.addColour(freddie);
+
+    for(Robot::ColourItr it = roboCopy.begin(); it !=roboCopy.end(); ++it)
+    {
+        cout << "Red " << (*it)->getRed() << endl;
+        cout << "Blue " << (*it)->getBlue() << endl;
+        cout << "Green " << (*it)->getGreen() << endl;
+    }
+
+    cout << "AnotherRobot now says:" << endl;
+
+    for(Robot::ColourItr it = anotherRobot.begin(); it !=anotherRobot.end(); ++it)
+    {
+        cout << "Red " << (*it)->getRed() << endl;
+        cout << "Blue " << (*it)->getBlue() << endl;
+        cout << "Green " << (*it)->getGreen() << endl;
+    }
 }
