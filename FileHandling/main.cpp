@@ -49,8 +49,10 @@ int main()
         }
         anotherFile.close();
     }
-
-    anotherFile.close();
+    else
+    {
+        cout << "Could not open file" << endl;
+    }
 
    return 0;
 }
